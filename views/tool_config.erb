@@ -16,11 +16,11 @@
   <table>
     <tr>
       <td>Tool Name</td>
-      <td><input name="tool_name" type="text" value="test engrade"/></td>
+      <td><input name="tool_name" type="text" value="lti-tester"/></td>
     </tr>
     <tr>
       <td>Consumer Key</td>
-      <td><input name="consumer_key" type="text" value="speakez_key"/></td>
+      <td><input name="consumer_key" type="text" value="admin"/></td>
     </tr>
     <tr>
       <td>Consumer Secret</td>
@@ -30,13 +30,15 @@
       <td>lms provider url(eg cap activity)</td>
       <td>
         <input name="launch_url" type="text"
-               value="http://localhost:3000/activity_lists/1/activities/south-america-puzzle?custom_course_id=1&html5=1"/>
+            <% # value="http://localhost:3000/activity_lists/1/activities/south-america-puzzle?custom_course_id=1&html5=1" %>
+            value="http://localhost:3000/lti_dashboard?custom_course_id=1&html5=1"
+        />
       </td>
     </tr>
 
     <tr>
       <td>Tool consumer info product family code (eg engrade, blackboard...)</td>
-      <td><input name="tool_consumer_info_product_family_code" type="text" value="fill this in! engrade blackboard..."/></td>
+      <td><input name="tool_consumer_info_product_family_code" type="text" value="test-lms"/></td>
     </tr>
 
     <tr>
@@ -47,6 +49,21 @@
       </td>
     </tr>
 
+    <tr>
+      <td>lti context id - used for cap section</td>
+      <td>
+        <input name="context_id" type="text"
+               value="test-lti-ctxt-sec"/>
+      </td>
+    </tr>
+
+    <tr>
+      <td>role</td>
+      <td>
+        <input name="roles" type="text"
+               value="learner"/>
+      </td>
+    </tr>
 
     <tr>
       <td>Launch as assignment</td>
