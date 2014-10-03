@@ -47,15 +47,18 @@ post '/tool_launch' do
   # Only this first one is required, the rest are recommended
   @consumer.resource_link_id = "thisisuniquetome"
   @consumer.launch_presentation_return_url = host + '/tool_return'
-  @consumer.lis_person_name_given = session['username']
-  @consumer.user_id = Digest::MD5.hexdigest(session['username'])
+  @consumer.lis_person_name_given = params[:lis_person_name_given] || session['username']
+  @consumer.user_id = Digest::MD5.hexdigest(@consumer.lis_person_name_given) #session['username'])
   @consumer.roles = params[:roles] #"learner"
   @consumer.context_id = params[:context_id] #"bestcourseever"
-  @consumer.context_title = params[:context_id] #"Example Lti Tool Consumer"
+  @consumer.context_title = params[:context_title]#params[:context_id] #"Example Lti Tool Consumer"
   @consumer.tool_consumer_instance_name = "Frankie"
 
   @consumer.tool_consumer_info_product_family_code = params[:tool_consumer_info_product_family_code]
   @consumer.resource_link_id = params[:resource_link_id]
+  @consumer.lis_person_name_family = params[:lis_person_name_family]
+
+  puts "last name #{@consumer.lis_person_name_family}"
 
   if params['assignment']
     @consumer.lis_outcome_service_url = host + '/grade_passback'
