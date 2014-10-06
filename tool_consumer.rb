@@ -49,7 +49,7 @@ post '/tool_launch' do
   @consumer.launch_presentation_return_url = host + '/tool_return'
   @consumer.lis_person_name_given = params[:lis_person_name_given] || session['username']
   #@consumer.user_id = Digest::MD5.hexdigest(@consumer.lis_person_name_given) #session['username'])
-  @consumer.user_id = params[:ltid]
+  @consumer.user_id = params[:lti_user_id]
   @consumer.roles = params[:roles] #"learner"
   @consumer.context_id = params[:context_id] #"bestcourseever"
   @consumer.context_title = params[:context_title]#params[:context_id] #"Example Lti Tool Consumer"
